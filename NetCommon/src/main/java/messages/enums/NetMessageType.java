@@ -15,5 +15,6 @@ public enum NetMessageType {
 
     DOWNLOADING_FILE,
 
-    USER_LOGOUT
+    USER_LOGOUT,
+    DELETE_FILE
 }

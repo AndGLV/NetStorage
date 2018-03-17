@@ -100,7 +100,7 @@ public class NetServerDownloadTask implements NetServerDownloadTaskListenable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        isActive = false;
+        //isActive = false;
         System.out.println("STOP DOWNLOAD " + netFile.getName());
     }
 

@@ -2,6 +2,7 @@ package clients;
 
 import authorization.NetAuthService;
 import clients.interfaces.NetHandlerListenable;
+import constants.NetConstants;
 import fileManagersServer.NetServerDownloadManager;
 import fileManagersServer.interfaces.NetServerDownloadManagerListenable;
 import files.NetFile;
@@ -180,11 +181,24 @@ public class NetHandler implements NetHandlerListenable{
                     userLogOut(msgInput);
                     break;
 
+                case DELETE_FILE:
+                    deleteFile(msgInput);
+                    break;
+
 				default:
 					break;
 			}
 		}
 	}
+
+	synchronized private void deleteFile(NetMessage msg){
+        String md5 = msg.getMsg();
+        File serverFile = new File(NetConstants.SERVER_FOLDER_PATH + "\\" + netUser.getFolder());
+        File[] files = serverFile.listFiles();
+        for (File file : files) {
+            if (file.getName().equals(md5)) file.delete();
+        }
+    }
 
 	synchronized private void userLogOut(NetMessage msg){
 	    uploadManager.stop();

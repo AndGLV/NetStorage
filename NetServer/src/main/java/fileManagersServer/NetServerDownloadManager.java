@@ -26,7 +26,7 @@ public class NetServerDownloadManager implements NetServerDownloadManagerListena
 
     @Override
     public void addDownloadFile(NetFile netFile) {
-        File serverFile = new File(NetConstants.SERVER_FOLDER_PATH);
+        File serverFile = new File(NetConstants.SERVER_FOLDER_PATH + "\\" + handler.getUser().getFolder());
         File[] files = serverFile.listFiles();
         File file = (files != null && files.length > 0) ? searchFileToMd5(netFile, files) : null;
         if (file != null){

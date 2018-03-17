@@ -100,6 +100,9 @@ public class MainControl implements MainListenable, MainForManagers {
         if (downFile != null){
             currentNode.deleteChildren(downFile);
             update(currentNode);
+            NetMessage msg = new NetMessage(NetMessageType.DELETE_FILE);
+            msg.setMsg(downFile.getMD5());
+            stateManager.sendMessage(msg);
         }
     }
 
@@ -265,7 +268,6 @@ public class MainControl implements MainListenable, MainForManagers {
         downloadManager.start();
 		this.currentUser = stateManager.getUser();
 		this.treeFiles = currentUser.getTreeFiles();
-		//testingData();
 		update(treeFiles.getRoot());
 	}
 
