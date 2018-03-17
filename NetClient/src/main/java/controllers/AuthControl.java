@@ -58,8 +58,7 @@ public  class  AuthControl implements AuthListenable {
 
 	@FXML
 	private void logIn() {
-		stateManager.setState(NetState.MAIN_FORM_AUTHORIZATION_IS_OK);
-        /*String login = textUserName.getText();
+        String login = textUserName.getText();
         String password = textPassword.getText();
 
         NetUser user = new NetUser();
@@ -67,7 +66,7 @@ public  class  AuthControl implements AuthListenable {
         user.setPassword(password);
 
         NetMessage msgOutput = new NetMessage(NetMessageType.REQUEST_AUTHORIZATION, user);
-        stateManager.sendMessage(msgOutput);*/
+        stateManager.sendMessage(msgOutput);
 	}
 
 	@FXML

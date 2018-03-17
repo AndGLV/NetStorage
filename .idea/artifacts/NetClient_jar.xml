@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="NetClient:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/NetClient_jar</output-path>
+    <root id="archive" name="NetClient.jar">
+      <element id="module-output" name="NetClient" />
+      <element id="module-output" name="NetCommon" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
