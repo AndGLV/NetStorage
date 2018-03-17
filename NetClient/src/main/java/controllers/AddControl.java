@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.List;
 
 public class AddControl implements AddListenable{
     @FXML private TextField textDirectory;
@@ -34,7 +35,17 @@ public class AddControl implements AddListenable{
             NetFile netFile = new NetFile(newFile, currentNode.getValue().getPath());
             netFile.setDirectory(true);
             netFile.setSizeString("");
-            currentNode.addChildren(netFile);
+            Boolean flag = false;
+
+            List<NetTreeFiles.NetNode> chld = currentNode.getChildrens();
+            for (NetTreeFiles.NetNode node : chld) {
+                if (node.getValue().getMD5().equals(netFile.getMD5())){
+                    flag = true;
+                }
+            }
+            if (!flag){
+                currentNode.addChildren(netFile);
+            }
             textDirectory.clear();
             btnCancel(event);
         }

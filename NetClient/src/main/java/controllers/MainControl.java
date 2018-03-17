@@ -97,7 +97,7 @@ public class MainControl implements MainListenable, MainForManagers {
 
 	private void btnDelete(){
         NetFile downFile = tableViewTreeFiles.getSelectionModel().getSelectedItem();
-        if (downFile != null){
+        if (downFile != null && downFile.isFileRet()){
             currentNode.deleteChildren(downFile);
             update(currentNode);
             NetMessage msg = new NetMessage(NetMessageType.DELETE_FILE);
