@@ -112,7 +112,7 @@ public class NetUploadTask implements NetUploadTaskListenable {
 			e.printStackTrace();
 		}
 
-		isActive = false;
+		//isActive = false;
         System.out.println("STOP UPLOAD " + netFile.getName());
 	}
 

@@ -123,11 +123,13 @@ public class MainControl implements MainListenable, MainForManagers {
                 stopManagers();
                 savePreference();
                 showAuthForm();
+                stateManager.setState(NetState.MAIN_FORM_LOG_OUT);
             }
         } else {
             sendDisconnectMessage();
             stopManagers();
             showAuthForm();
+            stateManager.setState(NetState.MAIN_FORM_LOG_OUT);
         }
     }
     private void stopManagers(){
@@ -261,13 +263,10 @@ public class MainControl implements MainListenable, MainForManagers {
         uploadManager = new NetUploadManager(this.stateManager, this);
         downloadManager = new NetDownloadManager(this.stateManager, this);
         downloadManager.start();
-	    this.treeFiles = new NetTreeFiles("root");
-	    update(treeFiles.getRoot());
-		/*this.currentUser = stateManager.getUser();
+		this.currentUser = stateManager.getUser();
 		this.treeFiles = currentUser.getTreeFiles();
 		//testingData();
-		update(treeFiles.getRoot());*/
-
+		update(treeFiles.getRoot());
 	}
 
 	@Override

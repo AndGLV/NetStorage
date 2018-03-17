@@ -39,7 +39,7 @@ public class NetServerUploadManager implements NetServerUploadManagerListenable 
 
 	@Override
 	public void addNewUploadFile(NetFile file) {
-		File newUploadFile = new File(NetConstants.SERVER_FOLDER_PATH  + file.getMD5());
+		File newUploadFile = new File(NetConstants.SERVER_FOLDER_PATH + handler.getUser().getFolder() +"\\"+ file.getMD5());
 		NetServerUploadTaskListenable newTask = new NetServerUploadTask(file, newUploadFile);
 		currentUploadFiles.put(file.getMD5(), newTask);
 	}

@@ -18,5 +18,6 @@ public enum NetState {
 
 
 
-    MAIN_FORM_AUTHORIZATION_IS_OK
+    MAIN_FORM_AUTHORIZATION_IS_OK,
+    MAIN_FORM_LOG_OUT
 }

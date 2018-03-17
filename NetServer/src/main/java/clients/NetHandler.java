@@ -190,7 +190,7 @@ public class NetHandler implements NetHandlerListenable{
 	    uploadManager.stop();
 	    dowloadManager.stop();
 	    NetUser user = (NetUser) msg.getObjMsg();
-	    //netAuthService.saveTreeFiles(user.getTreeFiles(), user.getLogin());
+	    netAuthService.saveTreeFiles(user.getTreeFiles(), user.getLogin());
     }
 
 	synchronized private void downloadingFile(NetMessage msg){
